@@ -161,3 +161,94 @@ textarea{
     display:flex;
     background: rgba(0,0,0,0.6);
 }
+@media (max-width: 600px) {
+
+    .container{
+        height: auto;
+        margin-top: 50px;
+    }
+
+    .homeh1{
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .homep{
+        font-size: 16px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .button{
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    footer{
+        padding: 10px 0 !important;
+        margin-top: 20px !important;
+    }
+
+    .footerclass{
+        font-size: 12px !important;
+    }
+
+    footer i{
+        font-size: 18px !important;
+    }
+
+    .blog{
+        padding: 10px;
+        width: 100%;
+    }
+
+    .blogp{
+        font-size: 16px;
+        width: 100%;
+        padding-left: 0;
+        line-height: 1.5;
+    }
+
+    .blogbutton{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modalbox{
+        width: 85%;
+        max-width: 280px;
+        padding: 20px;
+    }
+}
+@media (min-width: 600px) and (max-width: 1024px){
+
+    .container{
+        height: auto;
+        margin-top: 80px;
+    }
+
+    .homeh1{
+        font-size: 4rem;
+    }
+
+    .homep{
+        font-size: 18px;
+    }
+
+    .blog{
+        width: 90%;
+    }
+
+    .blogp{
+        font-size: 18px;
+        width: 95%;
+    }
+
+    footer{
+        padding: 15px 0 !important;
+    }
+
+    footer i{
+        font-size: 22px !important;
+    }
+}
