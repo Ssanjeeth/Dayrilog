@@ -1,0 +1,76 @@
+<%-include("partials/header.ejs")%>
+<%if(locals.editingMode){ %>
+        <form action="/publish" method="POST" class="blog-form">
+    
+        <div class="form"> <label>NAME:</label>
+        <input type="text" name="username" placeholder="Enter your name" value="<%= username %>"></div>
+    
+    
+        <div class="form"><label>TOPIC:</label>
+        <input type="text" name="topic" placeholder="Enter topic name" value="<%= topic %>"></div>
+    
+    
+        <div class="form"><label>DAYRILOG:</label>
+        <textarea type="text" name="blog" placeholder="Pour your thoughts here..." ><%= blog %></textarea></div>
+
+        <button type="submit" class = "button">Save Changes</button>
+    
+</form>
+
+<% }else if(locals.username || locals.topic || locals.blog){%>
+    <h1 class="blogh1">Welcome to Dayrilog,&nbsp;<%=username%>!😺</h1>
+        <div class="blog">
+            <h2 class="blogh2"><%=topic%></h2>
+            <hr />
+            <p class="blogp"><%=blog%></p>
+        </div>
+        <div class="blogbutton">
+                
+            <form action="/edit" method="POST">
+                <button type="submit" class="button">Edit</button>
+            </form>
+                
+            <button type="submit" class="button" onclick="openModel()">Delete</button>
+        </div>
+<%}else{%>
+    <form action="/publish" method="POST" class="blog-form">
+    
+       <div class="form"> <label>NAME:</label>
+        <input type="text" name="username" placeholder="Enter your name"></div>
+    
+    
+        <div class="form"><label>TOPIC:</label>
+        <input type="text" name="topic" placeholder="Enter topic name"></div>
+    
+    
+        <div class="form"><label>DAYRILOG:</label>
+        <textarea type="text" name="blog" placeholder="Pour your thoughts here..." ></textarea></div>
+
+        <button type="submit" class = "button">Publish</button>
+    
+</form>
+<% }%>
+        <div id="deleteModal" class="modal-overlay" style="display:none;">
+            <div class="modalbox">
+                <h3 class="modalh">Delete Blog?</h3>
+                <p  class="modalp">Are you sure you want to delete your blog?</p>
+                <div class="modal-buttons">
+                    <form action="/delete" method="POST">
+                        <button type="submit" class="button deletebtn" >Yes, Delete</button>
+                    </form>
+                    <button class="button cancelbtn" onclick="closeModel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function openModel(){
+                document.getElementById("deleteModal").style.display = "flex";
+            }
+            function closeModel(){
+                document.getElementById("deleteModal").style.display = "none";
+            }
+        </script>
+
+
+<%-include("partials/footer.ejs")%>
